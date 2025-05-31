@@ -9,7 +9,7 @@
 
     <div class="main-container" style="padding-top: 10px;">
         <!-- Judul dan Deskripsi -->
-        <div class="title">Twist Team</div>
+        <img src="/assets/img/twisteam.png" alt="TwistTeam Logo" class="logo" />
         <div class="subtitle">Fun & easy group division and spin the wheel!</div>
 
         <!-- Tombol -->

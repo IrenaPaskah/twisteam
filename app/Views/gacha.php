@@ -9,32 +9,22 @@
 
     <div class="main-container" style="padding-top: 10px;">
         <!-- Judul dan Deskripsi -->
-        <div class="title">Twist Team</div>
+        <img src="/assets/img/twisteam.png" alt="TwistTeam Logo" class="logo" />
         <div class="subtitle">Fun & easy group division and spin the wheel!</div>
+
+        <!-- Input data -->
+        <textarea id="nameInput" rows="5" placeholder="enter name per line"></textarea>
+        <input type="number" id="groupCount" placeholder="number of groups" />
 
         <!-- Tombol -->
         <div>
-            <button class="btn btn-custom btn-gacha">GACHA</button>
+            <button class="btn btn-custom btn-gacha" onclick="generateGroups()">GACHA</button>
         </div>
 
-        <!-- Input Nama -->
-        <textarea class="input-area" placeholder="Masukkan satu nama per baris"></textarea>
-
-        <!-- Flash Message -->
-        <div id="flashMessage">
-            <strong id="flashText"></strong><br><br>
-            <button class="btn btn-sm btn-primary" onclick="keepName()">Biarkan</button>
-            <button class="btn btn-sm btn-secondary" onclick="removeName()">Hapus</button>
+        <!-- Hasil -->
+        <div class="result-box" id="resultBox">
+            <!-- Team result will appear here -->
         </div>
-
-        <!-- Roda -->
-        <div class="wheel">
-            <canvas id="wheelCanvas" width="300" height="300"></canvas>
-            <img src="/assets/img/pointer.png" alt="pointer" class="pointer" />
-        </div>
-
-        <!-- Suara Notifikasi -->
-        <audio id="notifSound" src="assets/sounds/congrats.wav" preload="auto"></audio>
     </div>
 
     <!-- footer -->

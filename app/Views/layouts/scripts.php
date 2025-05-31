@@ -1,3 +1,4 @@
+<!-- spin -->
 <script>
     const canvas = document.getElementById("wheelCanvas");
     const ctx = canvas.getContext("2d");
@@ -145,4 +146,43 @@
     keepBtn.addEventListener("click", keepName);
 
     updateNames(); // initial render
+</script>
+
+
+<!-- gacha -->
+<script>
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function generateGroups() {
+        const names = document.getElementById('nameInput').value.trim().split('\n').filter(n => n.trim() !== '');
+        const groupCount = parseInt(document.getElementById('groupCount').value);
+        const resultBox = document.getElementById('resultBox');
+
+        if (names.length === 0 || isNaN(groupCount) || groupCount <= 0) {
+            resultBox.innerHTML = '<span class="text-danger">Please enter valid names and number of groups.</span>';
+            return;
+        }
+
+        const shuffled = shuffleArray(names);
+        const groups = Array.from({
+            length: groupCount
+        }, () => []);
+
+        shuffled.forEach((name, i) => {
+            groups[i % groupCount].push(name);
+        });
+
+        let output = '';
+        groups.forEach((group, idx) => {
+            output += `<strong>Group ${idx + 1}:</strong><br>${group.join(', ')}<br><br>`;
+        });
+
+        resultBox.innerHTML = output;
+    }
 </script>
